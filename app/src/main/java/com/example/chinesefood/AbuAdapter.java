@@ -4,6 +4,8 @@ import android.content.ClipData;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,26 +37,40 @@ public class AbuAdapter extends RecyclerView.Adapter<AbuAdapter.MyViewHolder> {
     }
     //2nd
 
+
+    //3rd
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         //Binds the data from ur data set to the view within view holder. this called by the recycler
 
         IndividualDish dish = individualDishList.get(position);
+        holder.foodName.setText(dish.getItemName());
+        holder.description.setText(dish.getItemDetail());
+        holder.foodImage.setImageResource(dish.itemImG);
 
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return individualDishList.size();
     }
+
+    //3rd
 
 
     //1st do this so we can pass it in the class bracket
     public static class MyViewHolder extends RecyclerView.ViewHolder{
+        ImageView foodImage;
+        TextView foodName;
+        TextView description;
 
-        public MyViewHolder(@NonNull View itemView)
+        public MyViewHolder(@NonNull View itemView)// the itemview holds references of our view
         {
-            super(itemView);
+            super(itemView);//this is the constructor and initializes the view holder to those variables
+            foodImage = itemView.findViewById(R.id.foodImg);
+            foodName = itemView.findViewById(R.id.nameFood);
+            description = itemView.findViewById(R.id.description);
+
         }
     }
     //1st
