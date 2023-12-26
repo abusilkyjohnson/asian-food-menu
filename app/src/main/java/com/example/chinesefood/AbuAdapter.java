@@ -31,13 +31,15 @@ public class AbuAdapter extends RecyclerView.Adapter<AbuAdapter.MyViewHolder> {
         View dishView = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_layout,parent,false);
 
 
-
         return new MyViewHolder(dishView);
     }
     //2nd
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        //Binds the data from ur data set to the view within view holder. this called by the recycler
+
+        IndividualDish dish = individualDishList.get(position);
 
     }
 
