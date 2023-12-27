@@ -17,6 +17,14 @@ public class AbuAdapter extends RecyclerView.Adapter<AbuAdapter.MyViewHolder> {
     //2nd
     private List<IndividualDish> individualDishList;
 
+    //4 after we made a item click listener initialize it
+    //  so you can have have it use our class
+    public ItemClickListener clickListener;
+
+    public void setClickListener(ItemClickListener AbuclickListener) {
+        this.clickListener = AbuclickListener;
+    }
+
     public AbuAdapter(List<IndividualDish> individualDishList) {
         this.individualDishList = individualDishList;
     }
@@ -59,7 +67,7 @@ public class AbuAdapter extends RecyclerView.Adapter<AbuAdapter.MyViewHolder> {
 
 
     //1st do this so we can pass it in the class bracket
-    public static class MyViewHolder extends RecyclerView.ViewHolder{
+    public  class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ImageView foodImage;
         TextView foodName;
         TextView description;
@@ -70,6 +78,20 @@ public class AbuAdapter extends RecyclerView.Adapter<AbuAdapter.MyViewHolder> {
             foodImage = itemView.findViewById(R.id.foodImg);
             foodName = itemView.findViewById(R.id.nameFood);
             description = itemView.findViewById(R.id.description);
+
+            //5 then have to set the view setclick to this keyword and change original header of line for MyViewHolder
+            // public static class MyViewHolder extends RecyclerView.ViewHolder
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            //6 removed static from MyViewHolder header
+            if(clickListener != null)
+            {
+                clickListener.onClick(v,getAdapterPosition());
+            }
 
         }
     }

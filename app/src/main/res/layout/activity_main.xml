@@ -9,27 +9,36 @@
 
    <ImageView
        android:id="@+id/headerImg"
-       android:layout_width="555dp"
-       android:layout_height="319dp"
-       android:layout_marginBottom="412dp"
+       android:layout_width="0dp"
+       android:layout_height="230dp"
+       android:scaleType="fitXY"
        android:src="@drawable/chinesedinnertable"
-       app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintHorizontal_bias="0.5"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent"
-       app:layout_constraintVertical_bias="0.0" />
+       app:layout_constraintTop_toTopOf="parent" />
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recyclerview"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="218dp"
        android:background="#48C93737"
-       app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/headerImg" />
+
+   <TextView
+       android:id="@+id/textView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="48dp"
+       android:fontFamily="@font/japanesestyle"
+       android:text="FOOD BUY US"
+       android:textColor="#C5B0B0"
+       android:textSize="50dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.598"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
